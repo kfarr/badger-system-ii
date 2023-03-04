@@ -44,18 +44,22 @@ def draw_badge(n):
     github_text = lines.pop(0)
     badge_path = lines.pop(0)
     
-    ptitle(display, name_text, 15, 44, 0)
-    
+    display.pen(0)
+    display.thickness(3)
+    # ptitle(display, name_text, 15, 44, 0)
+    display.text(name_text, 9, 58, 1.25)
+
     if len(github_text.strip()) > 0:
         # github icon
-        display.image(bytearray((0x3c,0x00,0xa5,0x81,0x81,0xc3,0x66,0x84)), 8, 8, 18, 86)
-        display.image(bytearray((0x00,0x00,0x00,0x00,0x00,0x00,0xfc,0xfe)), 8, 8, 18, 78)
-        display.image(bytearray((0x03,0x03,0x03,0x03,0x03,0x02,0x01,0x00)), 8, 8, 10, 86)
-        display.image(bytearray((0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x01)), 8, 8, 10, 78)
+        display.image(bytearray((0x3c,0x00,0xa5,0x81,0x81,0xc3,0x66,0x84)), 8, 8, 18, 96)
+        display.image(bytearray((0x00,0x00,0x00,0x00,0x00,0x00,0xfc,0xfe)), 8, 8, 18, 88)
+        display.image(bytearray((0x03,0x03,0x03,0x03,0x03,0x02,0x01,0x00)), 8, 8, 10, 76)
+        display.image(bytearray((0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x01)), 8, 8, 10, 68)
     
-    pprint(display, title_text, 15, 60, 0)
-    pprint(display, company_text, 15, 72, 0)
-    pprint(display, github_text, 30, 84, 0)
+
+    ptitle(display, title_text, 15, 70, 0)
+    pprint(display, company_text, 15, 82, 0)
+    pprint(display, github_text, 30, 94, 0)
     
     badge_dat = bytearray(int(IMAGE_WIDTH * IMAGE_HEIGHT / 8))
     open(f"badges/{badge_path}", "rb").readinto(badge_dat)
