@@ -34,13 +34,13 @@ def draw_about():
         
     # logo
     image = bytearray(int(32 * 32 / 8))
-    open("images/{}".format("census.bin"), "r").readinto(image)
+    open("images/{}".format("vimeo.bin"), "r").readinto(image)
     display.image(image, 32, 32, 86, 56)    
 
-    pprint(display, "Engineering", 125, 56, 0)
-    pprint(display, "Offsite", 125, 66, 0)
-    pprint(display, "Brooklyn", 125, 76, 0)
-    pprint(display, "2022", 125, 86, 0)
+    pprint(display, "Vimeo @ SXSW", 125, 56, 0)
+    pprint(display, "Austin 2023", 125, 66, 0)
+    pprint(display, "Original source", 125, 76, 0)
+    pprint(display, "oneearedrabbit", 125, 86, 0)
 
 def render():
     display.pen(15)

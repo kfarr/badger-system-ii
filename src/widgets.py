@@ -193,17 +193,10 @@ def draw_menu(display, selected):
     display.pen(0)
     display.thickness(1)
     
-    x = 12
-    y = 6
-    display.line(x + 2, y, x + 8, y)
-    display.line(x + 6, y + 1, x + 9, y + 1)
-    display.line(x + 1, y + 2, x + 10, y + 2)
-    display.line(x + 5, y + 3, x + 10, y + 3)
-    display.line(x, y + 4, x + 10, y + 4)
-    display.line(x + 5, y + 5, x + 10, y + 5)
-    display.line(x + 1, y + 6, x + 10, y + 6)
-    display.line(x + 6, y + 7, x + 9, y + 7)
-    display.line(x + 2, y + 8, x + 8, y + 8)
+    # logo
+    image = bytearray(int(16 * 16 / 8))
+    open("images/{}".format("vimeo16.bin"), "r").readinto(image)
+    display.image(image, 16, 16, 9, 3)    
 
     x = 40
     pprint(display, menu, x, 6, 0)
